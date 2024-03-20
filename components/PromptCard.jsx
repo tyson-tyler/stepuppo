@@ -4,7 +4,6 @@ import { useState } from "react";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { usePathname, useRouter } from "next/navigation";
-import { Edit, Trash } from "lucide-react";
 
 const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
   const { data: session } = useSession();
@@ -43,7 +42,7 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
           />
 
           <div className="flex flex-col">
-            <h3 className="font-satoshi font-semibold text-gray-50">
+            <h3 className="font-satoshi font-semibold text-gray-900">
               {post.creator.username}
             </h3>
             <p className="font-inter text-sm text-gray-500">
@@ -80,7 +79,13 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
             className="font-inter text-sm green_gradient cursor-pointer"
             onClick={handleEdit}
           >
-            <Edit className="w-5 h-5 hover:text-gray-50 text-gray-400" />
+            Edit
+          </p>
+          <p
+            className="font-inter text-sm orange_gradient cursor-pointer"
+            onClick={handleDelete}
+          >
+            Delete
           </p>
         </div>
       )}
